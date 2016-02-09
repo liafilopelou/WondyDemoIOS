@@ -17,7 +17,6 @@ class CenterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         super.viewDidLoad()
         self.navigationItem.title = self.center?.name
-        self.addLeftBarButtonWithImage(UIImage(named: "Menu_Icon")!)
         
         self.descriptionTextView.text = (self.center?.description)! + "\n\nEncuentranos en: " + (self.center?.address)!
         self.descriptionTextView.layer.cornerRadius = 5

@@ -150,7 +150,7 @@
 				0ADF32131C64A50000B372EF /* CenterPhotoCollectionViewCell.swift */,
 				0A5C049B1C67D1D000AF76A5 /* MenuTableViewCell.swift */,
 			);
-			name = ControllerComponents;
+			path = ControllerComponents;
 			sourceTree = "<group>";
 		};
 		0AF40E021C620BB9002BACC9 = {
@@ -219,7 +219,7 @@
 				0ADF32221C6654A500B372EF /* UserProfileViewController.swift */,
 				0ADF32271C67B7C300B372EF /* MenuContainerViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		0AF40E3D1C620BE2002BACC9 /* AppDelegate */ = {
@@ -227,7 +227,7 @@
 			children = (
 				0AF40E0E1C620BB9002BACC9 /* AppDelegate.swift */,
 			);
-			name = AppDelegate;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		0AF40E3E1C620C05002BACC9 /* Model */ = {
@@ -236,7 +236,7 @@
 				0AF40E471C6268F8002BACC9 /* Center.swift */,
 				0ADF32201C662C4700B372EF /* MapCenter.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0AF40E421C6222DA002BACC9 /* Connection */ = {
@@ -245,7 +245,7 @@
 				0AF40E431C622322002BACC9 /* ConnectionDataProvider.swift */,
 				0ADF320B1C62791600B372EF /* ConnectionHandler.swift */,
 			);
-			name = Connection;
+			path = Connection;
 			sourceTree = "<group>";
 		};
 		C8A28809DF92B6CE9E839771 /* Pods */ = {

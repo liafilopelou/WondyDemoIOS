@@ -6,8 +6,8 @@ class MenuContainerViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userPhotoImageView: UIImageView!
     
-    let items = ["Lista de centros", "Centros en mapa", "Perfil"]
-    let menuItems: [String: String] = ["Lista de centros": "CenterTableNavigationController", "Centros en mapa": "CenterMapNavigationController", "Perfil": "UserProfileNavigationController"]
+    let items = ["Lista de centros", "Centros en mapa", "Perfil", "Favoritos"]
+    let menuItems: [String: String] = ["Lista de centros": "CenterTableNavigationController", "Centros en mapa": "CenterMapNavigationController", "Perfil": "UserProfileNavigationController", "Favoritos": "CenterTableNavigationController"]
     
     override func viewDidLoad() {
         
@@ -55,6 +55,8 @@ class MenuContainerViewController: UIViewController, UITableViewDelegate, UITabl
             self.slideMenuController()?.changeMainViewController(storyboard.instantiateViewControllerWithIdentifier(menuItems["Centros en mapa"]!) as! UINavigationController, close: true)
         case "Perfil":
             self.slideMenuController()?.changeMainViewController(storyboard.instantiateViewControllerWithIdentifier(menuItems["Perfil"]!) as! UINavigationController, close: true)
+        case "Favoritos":
+            self.slideMenuController()?.changeMainViewController(storyboard.instantiateViewControllerWithIdentifier(menuItems["Favoritos"]!) as! UINavigationController, close: true)
         default:
             return
         }

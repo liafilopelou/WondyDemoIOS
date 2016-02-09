@@ -13,13 +13,7 @@ class CenterTableViewController: UITableViewController {
         self.loadCenters()
         self.navigationItem.title = "Centros"
         self.addLeftBarButtonWithImage(UIImage(named: "Menu_Icon")!)
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        //self.navigationController?.navigationBar.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
-        //self.navigationController?.navigationBar.shadowImage = UIImage()
-        //self.navigationController?.navigationBar.translucent = true
-        
         self.tableView.separatorColor = UIColor(red: 214/255.0, green: 138/255.0, blue: 142/255.0, alpha: 1)
-        
     }
 
 

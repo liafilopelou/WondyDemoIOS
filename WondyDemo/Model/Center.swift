@@ -4,6 +4,7 @@ import ObjectMapper
 
 class Center: Mappable {
     
+    var id: String?
     var name: String?
     var address: String?
     var longitude: Double?
@@ -13,12 +14,13 @@ class Center: Mappable {
     var description: String?
     
     required init?(_ map: Map) {
-        
+
         mapping(map)
     }
     
     func mapping(map: Map) {
         
+        id <- map["id"]
         name <- map["name"]
         address <- map["address"]
         longitude <- (map["long"], TransformOf<Double, String>(fromJSON: { Double($0!) }, toJSON: { $0.map { String($0) } }))

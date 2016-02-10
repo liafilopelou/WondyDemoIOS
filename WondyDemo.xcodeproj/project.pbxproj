@@ -34,6 +34,10 @@
 		0AF40E501C627153002BACC9 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF40E4B1C627153002BACC9 /* MBProgressHUD.framework */; };
 		0AF40E511C627153002BACC9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF40E4C1C627153002BACC9 /* ObjectMapper.framework */; };
 		0AF40E521C627153002BACC9 /* Pods_WondyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AF40E4D1C627153002BACC9 /* Pods_WondyDemo.framework */; };
+		0AF88D881C6A557500C73DBB /* CentersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF88D871C6A557500C73DBB /* CentersProvider.swift */; };
+		0AF88D8A1C6A575E00C73DBB /* RemoteCentersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF88D891C6A575E00C73DBB /* RemoteCentersProvider.swift */; };
+		0AF88D8C1C6A58CA00C73DBB /* FavoriteCentersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF88D8B1C6A58CA00C73DBB /* FavoriteCentersProvider.swift */; };
+		0AF88D8E1C6A6ACF00C73DBB /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF88D8D1C6A6ACF00C73DBB /* FavoritesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,10 @@
 		0AF40E4B1C627153002BACC9 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "Pods/../build/Release-iphoneos/MBProgressHUD.framework"; sourceTree = "<group>"; };
 		0AF40E4C1C627153002BACC9 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/../build/Release-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		0AF40E4D1C627153002BACC9 /* Pods_WondyDemo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_WondyDemo.framework; path = "Pods/../build/Release-iphoneos/Pods_WondyDemo.framework"; sourceTree = "<group>"; };
+		0AF88D871C6A557500C73DBB /* CentersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentersProvider.swift; sourceTree = "<group>"; };
+		0AF88D891C6A575E00C73DBB /* RemoteCentersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCentersProvider.swift; sourceTree = "<group>"; };
+		0AF88D8B1C6A58CA00C73DBB /* FavoriteCentersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCentersProvider.swift; sourceTree = "<group>"; };
+		0AF88D8D1C6A6ACF00C73DBB /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		0B499E45A0BA6F995AF1E65F /* Pods_WondyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WondyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F1FAE7AA4BEA7D0476BBB9 /* Pods-WondyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WondyDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WondyDemo/Pods-WondyDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A3055F66BE38BDB517C3C089 /* Pods-WondyDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WondyDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WondyDemo/Pods-WondyDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +186,7 @@
 		0AF40E0D1C620BB9002BACC9 /* WondyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0AF88D861C6A469300C73DBB /* DataSource */,
 				0AF40E421C6222DA002BACC9 /* Connection */,
 				0AF40E3E1C620C05002BACC9 /* Model */,
 				0AF40E3D1C620BE2002BACC9 /* AppDelegate */,
@@ -246,6 +255,17 @@
 				0ADF320B1C62791600B372EF /* ConnectionHandler.swift */,
 			);
 			path = Connection;
+			sourceTree = "<group>";
+		};
+		0AF88D861C6A469300C73DBB /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				0AF88D871C6A557500C73DBB /* CentersProvider.swift */,
+				0AF88D891C6A575E00C73DBB /* RemoteCentersProvider.swift */,
+				0AF88D8B1C6A58CA00C73DBB /* FavoriteCentersProvider.swift */,
+				0AF88D8D1C6A6ACF00C73DBB /* FavoritesManager.swift */,
+			);
+			name = DataSource;
 			sourceTree = "<group>";
 		};
 		C8A28809DF92B6CE9E839771 /* Pods */ = {
@@ -445,10 +465,14 @@
 				0ADF32141C64A50000B372EF /* CenterPhotoCollectionViewCell.swift in Sources */,
 				0AF40E481C6268F8002BACC9 /* Center.swift in Sources */,
 				0ADF320C1C62791600B372EF /* ConnectionHandler.swift in Sources */,
+				0AF88D8A1C6A575E00C73DBB /* RemoteCentersProvider.swift in Sources */,
 				0ADF321B1C64F09900B372EF /* CenterMapViewController.swift in Sources */,
 				0ADF32121C64139800B372EF /* CenterViewController.swift in Sources */,
+				0AF88D8C1C6A58CA00C73DBB /* FavoriteCentersProvider.swift in Sources */,
 				0AF40E441C622322002BACC9 /* ConnectionDataProvider.swift in Sources */,
+				0AF88D881C6A557500C73DBB /* CentersProvider.swift in Sources */,
 				0ADF32101C63A1EA00B372EF /* CenterTableViewController.swift in Sources */,
+				0AF88D8E1C6A6ACF00C73DBB /* FavoritesManager.swift in Sources */,
 				0AF40E0F1C620BB9002BACC9 /* AppDelegate.swift in Sources */,
 				0A5C049C1C67D1D000AF76A5 /* MenuTableViewCell.swift in Sources */,
 				0ADF32281C67B7C300B372EF /* MenuContainerViewController.swift in Sources */,

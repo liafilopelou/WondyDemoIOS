@@ -7,7 +7,7 @@ class MenuContainerViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var userPhotoImageView: UIImageView!
     
     let items = ["Lista de centros", "Centros en mapa", "Perfil", "Favoritos"]
-    let menuItems: [String: String] = ["Lista de centros": "CenterTableNavigationController", "Centros en mapa": "CenterMapNavigationController", "Perfil": "UserProfileNavigationController", "Favoritos": "CenterTableNavigationController"]
+    let menuItems: [String: String] = ["Lista de centros": "CenterTableViewController", "Centros en mapa": "CenterMapNavigationController", "Perfil": "UserProfileNavigationController", "Favoritos": "CenterTableViewController"]
     
     override func viewDidLoad() {
         
@@ -50,13 +50,24 @@ class MenuContainerViewController: UIViewController, UITableViewDelegate, UITabl
         
         switch menuItem {
         case "Lista de centros":
-            self.slideMenuController()?.changeMainViewController(storyboard.instantiateViewControllerWithIdentifier(menuItems["Lista de centros"]!) as! UINavigationController, close: true)
+            let centerTableViewController = storyboard.instantiateViewControllerWithIdentifier(menuItems["Lista de centros"]!) as! CenterTableViewController
+            centerTableViewController.centersProvider = RemoteCentersProvider()
+            let centerNavigationController = UINavigationController(rootViewController: centerTableViewController)
+            self.slideMenuController()?.changeMainViewController(centerNavigationController, close: true)
+            
         case "Centros en mapa":
             self.slideMenuController()?.changeMainViewController(storyboard.instantiateViewControllerWithIdentifier(menuItems["Centros en mapa"]!) as! UINavigationController, close: true)
+            
         case "Perfil":
             self.slideMenuController()?.changeMainViewController(storyboard.instantiateViewControllerWithIdentifier(menuItems["Perfil"]!) as! UINavigationController, close: true)
+            
         case "Favoritos":
-            self.slideMenuController()?.changeMainViewController(storyboard.instantiateViewControllerWithIdentifier(menuItems["Favoritos"]!) as! UINavigationController, close: true)
+            
+            let centerTableViewController = storyboard.instantiateViewControllerWithIdentifier(menuItems["Favoritos"]!) as! CenterTableViewController
+            centerTableViewController.centersProvider = FavoriteCentersProvider()
+            let centerNavigationController = UINavigationController(rootViewController: centerTableViewController)
+            self.slideMenuController()?.changeMainViewController(centerNavigationController, close: true)
+
         default:
             return
         }

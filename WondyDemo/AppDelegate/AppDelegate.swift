@@ -11,7 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainVC = storyboard.instantiateViewControllerWithIdentifier("CenterTableNavigationController") as! UINavigationController
+        
+        let centerTableViewController = storyboard.instantiateViewControllerWithIdentifier("CenterTableViewController") as! CenterTableViewController
+        centerTableViewController.centersProvider = RemoteCentersProvider()
+        let mainVC = UINavigationController(rootViewController: centerTableViewController)
+        
         let leftVC = storyboard.instantiateViewControllerWithIdentifier("MenuContainerViewController") as! MenuContainerViewController
         
         UINavigationBar.appearance().tintColor = UIColor(red: 214/255.0, green: 138/255.0, blue: 142/255.0, alpha: 1)

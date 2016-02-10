@@ -6,16 +6,21 @@ import SlideMenuControllerSwift
 class CenterTableViewController: UITableViewController {
     
     var centers = [Center]()
+    var centersProvider : CentersProvider?
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.loadCenters()
         self.navigationItem.title = "Centros"
         self.addLeftBarButtonWithImage(UIImage(named: "Menu_Icon")!)
         self.tableView.separatorColor = UIColor(red: 214/255.0, green: 138/255.0, blue: 142/255.0, alpha: 1)
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.navigationController?.navigationBarHidden = false
+        self.loadCenters()
+    }
 
     // MARK: - Table view data source
 
@@ -69,8 +74,7 @@ class CenterTableViewController: UITableViewController {
         hub.mode = .Indeterminate
         hub.dimBackground = true
         hub.labelText = "Cargando"
-        let handler = ConnectionHandler()
-        handler.fetchCenters({ (centers, error) -> Void in
+        self.centersProvider?.fetchCenters({ (centers, error) -> Void in
             if let centers = centers {
                 self.centers = centers
                 self.tableView.reloadData()

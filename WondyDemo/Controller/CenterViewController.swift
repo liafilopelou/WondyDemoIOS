@@ -12,11 +12,24 @@ class CenterViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     var center: Center?
     var descriptionIsHidden : Bool?
+    var isFavorite : Bool?
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.navigationItem.title = self.center?.name
+        
+        let rightButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Favorite_Icon")!, style: UIBarButtonItemStyle.Plain, target: self, action: "toggleFavorite")
+        self.navigationItem.rightBarButtonItem = rightButton
+        
+        if FavoritesManager.sharedInstance.contains(self.center!.id!) {
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 214/255.0, green: 138/255.0, blue: 142/255.0, alpha: 1)
+            self.isFavorite = true
+        }
+        else {
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.grayColor()
+            self.isFavorite = false
+        }
         
         self.descriptionTextView.text = (self.center?.description)! + "\n\nEncuentranos en: " + (self.center?.address)!
         self.descriptionTextView.layer.cornerRadius = 5
@@ -46,6 +59,16 @@ class CenterViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func didReceiveMemoryWarning() {
         
         MapleBaconStorage.sharedStorage.clearMemoryStorage()
+    }
+    
+    func toggleFavorite() {
+        FavoritesManager.sharedInstance.toggleFavorite((self.center?.id)!)
+        if (self.isFavorite == true) {
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.grayColor()
+        }
+        else {
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 214/255.0, green: 138/255.0, blue: 142/255.0, alpha: 1)
+        }
     }
     
     @IBAction func scrollButtonPressed(sender: UIButton) {
